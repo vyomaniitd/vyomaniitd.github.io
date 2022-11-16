@@ -15,13 +15,14 @@ var firebaseConfig = {
 
  async function handleSubmit(event) {
     event.preventDefault();
+   
 
     const data = new FormData(event.target);
 
   const value = data.get('device ID');
 
   console.log(value);
-  
+  localStorage.setItem("Key", value);
   
 
 //   booksRef
@@ -34,18 +35,15 @@ var firebaseConfig = {
 //     console.log("All data in 'books' collection", data); 
 //     // [ { id: 'glMeZvPpTN1Ah31sKcnj', title: 'The Great Gatsby' } ]
 //   });
+var PCBJson = "";
 
-const cityRef = db.collection('PCB').doc(`${value}`);
-const doc = await cityRef.get();
-if (!doc.exists) {
-  console.log('No such document!');
-} else {
-    var dat = doc.data()
-  alert('Document data:', JSON.stringify(dat));
-}
-
-  
+setTimeout(start,3000);
+//document.getElementById('output').innerHTML = ServiceJson;
 }
 
 const form = document.querySelector('form');
 form.addEventListener('submit', handleSubmit);
+
+function start() {
+  window.location= 'output.html';
+}

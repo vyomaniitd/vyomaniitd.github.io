@@ -42,7 +42,7 @@ function handleSubmit(event) {
 //     // [ { id: 'glMeZvPpTN1Ah31sKcnj', title: 'The Great Gatsby' } ]
 //   });
 
-db.collection("PCB")
+db.collection("Claim")
     .doc(`${value}`)
     .set({
         DeviceId: value,
