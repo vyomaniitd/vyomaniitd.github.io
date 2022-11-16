@@ -7,8 +7,15 @@
     <title>Claim Device</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Claim-Device.css" media="screen">
+
+    
     <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+  <!-- Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="formClaim.js" defer=""></script>
+
     <meta name="generator" content="Nicepage 4.21.19, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     
@@ -36,22 +43,22 @@
             </a>
           </div>
           <div class="u-nav-container">
-            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.html" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Add-Device-PCB.html" style="padding: 10px 20px;">Add Device-PCB</a>
+            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Add-Device-PCB.html" style="padding: 10px 20px;">Add Device-PCB</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Firmware.html" style="padding: 10px 20px;">Firmware</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Service-Log.html" style="padding: 10px 20px;">Service Log</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Claim-Device.html" style="padding: 10px 20px;">Claim Device</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.html" style="padding: 10px 20px;">Home</a>
 </li></ul>
           </div>
           <div class="u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Add-Device-PCB.html">Add Device-PCB</a>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Add-Device-PCB.html">Add Device-PCB</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Firmware.html">Firmware</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Service-Log.html">Service Log</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Claim-Device.html">Claim Device</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
 </li></ul>
               </div>
             </div>
@@ -63,7 +70,7 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-text u-text-default u-text-1" spellcheck="false">Device Claim</h1>
         <div class="u-form u-form-1">
-          <form action="https://forms.nicepagesrv.com/Form/Process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form" style="padding: 10px;">
+          <form action="https://forms.nicepagesrv.com/Form/Process" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="deviceClaim" style="padding: 10px;">
             <div class="u-form-group u-form-name">
               <label for="name-8928" class="u-label">Device ID</label>
               <input type="text" placeholder="Enter the Device ID" id="name-8928" name="device ID" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="" spellcheck="false">
