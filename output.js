@@ -193,7 +193,7 @@ Object.keys(ServiceJson).forEach((key) => {
 }
 
 let table = document.querySelector("table");
-let upperSet = ["Assembled Date",   "Service_BY", "Service Status", "Service Issue"];
+let upperSet = ["Date",   "Name", "Service Status", "Service Issue"];
 
 generateTableHead(table, upperSet);
 generateTable(table);
