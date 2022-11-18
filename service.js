@@ -12,9 +12,9 @@ var firebaseConfig = {
  const db = firebase.firestore();
 
  const booksRef = firebase.firestore().collection('PCB');
-  
+ const FieldValue = firebase.firestore().FieldValue;
 
-function handleSubmitService(event) {
+async function handleSubmitService(event) {
     event.preventDefault();
     
     const data = new FormData(event.target);
@@ -49,26 +49,53 @@ function handleSubmitService(event) {
     }
   
   console.log(send);
+   var lengthsofFile = 1;
+  var ServiceJson = [];
 
-    db.collection("Service")
+
+const ServiceRef = db.collection('Service').doc(`${value}`);
+const SerDoc = await ServiceRef.get();
+if (!SerDoc.exists) {
+  console.log('No such SerDocument!');
+  db.collection("Service")
         .doc(`${value}`)
-        .set({
-
-
-
-            DeviceId: value,
-            Service_By: data.get('Select Name'),
-        
-            AssembledDate: data.get('date'),
-            Service_Status: Status,
-            Service_Issue: data.get('textarea'),
-        
-
-       
-        })
+        .set({})
         .then(() => {
             console.log("Document created");
         });
+        
+} else {
+    
+      ServiceJson = SerDoc.data();
+      var keys = Object.keys(ServiceJson);
+      console.log(keys.length);
+      console.log(SerDoc.data());
+      console.log(keys[keys.length - 1]);
+      lengthsofFile = keys.length+1;
+
+}
+ 
+    var sendJson = {[lengthsofFile]: {
+            "Service_By": data.get('Select Name'),
+            "AssembledDate": data.get('date'),
+            "Service_Status": Status,
+            "Service_Issue": data.get('textarea')}
+
+    };
+   
+    const updateData =  await ServiceRef.update(sendJson)
+    .then(() => {
+        console.log("Document created");
+    });
+    
+        // .set( [{"1"} , {
+        //     //DeviceId: value,
+        //     
+        // } ],{merge:true}
+        // )
+
+        
+   
   
 }
 
