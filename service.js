@@ -21,12 +21,18 @@ async function handleSubmitService(event) {
 
     const value = data.get('device ID');
     var Status = "";
-    if(document.getElementById("field-a4e2").checked) {
+    if(document.getElementById("field-a4e2C").checked) {
         Status = "Solved";
     } else if(document.getElementById("field-fa07").checked) {
         Status = "Not Solved";
     } else if(document.getElementById("field-ff25").checked) {
         Status = "Pending";
+    }
+    else if(document.getElementById("field-a4e2A").checked) {
+        Status = "QC";
+    } 
+    else if(document.getElementById("field-a4e2B").checked) {
+        Status = "Comment";
     } else { }
    
 
